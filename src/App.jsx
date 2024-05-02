@@ -1,16 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './screens/LoginScreen';
+import ShoppingListScreen from './screens/ShoppingListScreen';
 
-function App() {
-  const [count, setCount] = useState(0)
+const Stack = createNativeStackNavigator();
 
+export default function App() {
   return (
+<<<<<<< Updated upstream
     <>
       
     </>
   )
+=======
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="ShoppingList" component={ShoppingListScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+>>>>>>> Stashed changes
 }
-
-export default App
