@@ -14,7 +14,30 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Volcando estructura de base de datos para lista-compra
+CREATE DATABASE IF NOT EXISTS `lista-compra` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `lista-compra`;
+
+-- Volcando estructura para tabla lista-compra.lista
+CREATE TABLE IF NOT EXISTS `lista` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cantidad` int(11) NOT NULL DEFAULT 0,
+  `nombre` varchar(100) NOT NULL DEFAULT '0',
+  `user` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `FK_lista_user` (`user`),
+  CONSTRAINT `FK_lista_user` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla lista-compra.user
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `mail` varchar(400) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- La exportación de datos fue deseleccionada.
 
