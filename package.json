@@ -10,15 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< Updated upstream
-    "@radix-ui/react-slot": "^1.0.2",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.377.0",
-=======
     "@shadcn/ui": "^0.0.4",
     "firebase": "^10.11.1",
->>>>>>> Stashed changes
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.3.0",
