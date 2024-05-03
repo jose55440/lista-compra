@@ -1,44 +1,42 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { Checkbox } from '@shadcn/ui';
 
 export const ShoppingListItem = ({ item, index, togglePurchased, changeQuantity }) => (
-  <View style={styles.itemContainer}>
+  <div className="item-container">
     <Checkbox
       checked={item.purchased}
       onCheckedChange={() => togglePurchased(index)}
     />
-    <Text style={item.purchased ? styles.purchasedText : styles.unpurchasedText}>
+    <span className={item.purchased ? 'purchased-text' : 'unpurchased-text'}>
       {item.name}
-    </Text>
-    <TextInput
-      style={styles.quantityInput}
+    </span>
+    <input
+      className="quantity-input"
       value={item.quantity.toString()}
-      onChangeText={(text) => changeQuantity(index, parseInt(text, 10))}
-      keyboardType="numeric"
+      onChange={(e) => changeQuantity(index, parseInt(e.target.value, 10))}
+      type="number"
     />
-  </View>
-);
+  </div>
+); 
+.item-container {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
 
-const styles = {
-  itemContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 8,
-  },
-  purchasedText: {
-    textDecorationLine: 'line-through',
-    marginHorizontal: 8,
-  },
-  unpurchasedText: {
-    marginHorizontal: 8,
-  },
-  quantityInput: {
-    marginLeft: 'auto',
-    width: 50,
-    borderWidth: 1,
-    borderColor: 'gray',
-    padding: 4,
-    textAlign: 'center',
-  },
-};
+.purchased-text {
+  text-decoration: line-through;
+  margin: 0 8px;
+}
+
+.unpurchased-text {
+  margin: 0 8px;
+}
+
+.quantity-input {
+  margin-left: auto;
+  width: 50px;
+  border: 1px solid gray;
+  padding: 4px;
+  text-align: center;
+}
