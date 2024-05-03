@@ -1,8 +1,10 @@
+// ShoppingListScreen.js
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, FlatList, TouchableOpacity, Text } from 'react-native';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { ShoppingListItem } from '../components/ShoppingListItem';
+import styles from './index.css';
 
 export default function ShoppingListScreen() {
   const [newItem, setNewItem] = useState('');
@@ -56,22 +58,34 @@ export default function ShoppingListScreen() {
   };
 
   return (
-    <View>
+    <View className={styles['shopping-list-screen']}>
       <TextInput
         value={newItem}
         onChangeText={setNewItem}
         placeholder="Nuevo item"
         onSubmitEditing={addItem}
+        className={styles['shopping-list-screen__input']}
       />
       <FlatList
         data={shoppingList}
         renderItem={({ item, index }) => (
-          <ShoppingListItem
-            item={item}
-            index={index}
-            togglePurchased={togglePurchased}
-            changeQuantity={changeQuantity}
-          />
+          <View className={`${styles['shopping-list-screen__item']} ${item.purchased ? styles['shopping-list-screen__item--purchased'] : ''}`}>
+            <Text>{item.name}</Text>
+            <View>
+              <TouchableOpacity
+                onPress={() => togglePurchased(index)}
+                className={styles['shopping-list-screen__item-button']}
+              >
+                <Text>{item.purchased ? 'Comprado' : 'Pendiente'}</Text>
+              </TouchableOpacity>
+              <TextInput
+                value={item.quantity.toString()}
+                onChangeText={(text) => changeQuantity(index, parseInt(text, 10))}
+                keyboardType="numeric"
+                className={styles['shopping-list-screen__item-quantity']}
+              />
+            </View>
+          </View>
         )}
         keyExtractor={(item) => item.name}
       />
