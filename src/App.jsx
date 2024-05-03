@@ -8,18 +8,8 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-<<<<<<< Updated upstream
     <>
       
     </>
   )
-=======
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="ShoppingList" component={ShoppingListScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
->>>>>>> Stashed changes
 }
