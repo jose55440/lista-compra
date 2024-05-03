@@ -18,25 +18,3 @@ export const ShoppingListItem = ({ item, index, togglePurchased, changeQuantity 
     />
   </div>
 ); 
-.item-container {
-  display: flex;
-  align-items: center;
-  margin: 8px 0;
-}
-
-.purchased-text {
-  text-decoration: line-through;
-  margin: 0 8px;
-}
-
-.unpurchased-text {
-  margin: 0 8px;
-}
-
-.quantity-input {
-  margin-left: auto;
-  width: 50px;
-  border: 1px solid gray;
-  padding: 4px;
-  text-align: center;
-}
