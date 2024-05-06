@@ -1,0 +1,61 @@
+.contenedor-tarea{
+    min-width: 300px;
+    background-color: rgb(199, 49, 49);
+    border-radius: 10px;
+    margin-top: 10px;
+    user-select: none;
+
+    padding: 3px 7px;
+    
+}
+.contenedor-tarea.completado{
+    background-color: rgb(115, 170, 51);
+}
+.botones{
+    display: flex;
+    justify-content: right;
+}
+
+.tarea-icono-completado{
+    cursor: pointer;
+}
+.tarea-icono-editar{
+    cursor: pointer;
+}
+
+
+
+
+/* Estilos para el contenedor del mensaje */
+.confirmation-message {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #717271;
+    border-radius: 25px;
+  }
+  
+  /* Estilos para el mensaje */
+  .confirmation-message-text {
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para los botones */
+  .confirmation-button {
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio alrededor del texto */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-right: 10px; /* Margen entre los botones */
+  }
+  
+  /* Estilos para el botón de cancelar */
+  .cancel-button {
+    background-color: #dc3545; /* Color de fondo */
+  }
+  
+  /* Estilos para el botón de confirmar */
+  .confirm-button {
+    background-color: #28a745; /* Color de fondo */
+  }
