@@ -8,10 +8,10 @@ export const View = () => {
   const { tasks, removeTask, toComplete } = useTaskList();
 
   return (
-    <MagicMotion>
+    
       <div>
         <Create />
-
+        <MagicMotion>
         {tasks.map((task) => (
           <Task
             key={task.id}
@@ -22,7 +22,8 @@ export const View = () => {
             toComplete={toComplete}
           />
         ))}
+        </MagicMotion>
       </div>
-    </MagicMotion>
+    
   );
 };
