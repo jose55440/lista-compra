@@ -2,10 +2,10 @@ import React from 'react'
 
 export const View = () => {
   return (
-    
+    <MagicMotion>
       <div>
         <Create />
-        <MagicMotion>
+
         {tasks.map((task) => (
           <Task
             key={task.id}
@@ -16,8 +16,7 @@ export const View = () => {
             toComplete={toComplete}
           />
         ))}
-        </MagicMotion>
       </div>
-    
+    </MagicMotion>
   );
 };
