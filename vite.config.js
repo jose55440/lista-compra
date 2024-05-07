@@ -5,7 +5,7 @@ export default defineConfig({
   build: {
     // Exclude react-native from being processed by Vite
     rollupOptions: {
-      external: /^react-native/,
+      external: /^react-native\/.+/,
     },
   },
 });
