@@ -11,7 +11,7 @@ export const View = () => {
     
       <div>
         <Create />
-        <MagicMotion>
+        
         {tasks.map((task) => (
           <Task
             key={task.id}
@@ -22,7 +22,7 @@ export const View = () => {
             toComplete={toComplete}
           />
         ))}
-        </MagicMotion>
+        
       </div>
     
   );
