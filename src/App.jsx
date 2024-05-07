@@ -1,18 +1,19 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from './LoginScreen';
-import ShoppingListScreen from './ShoppingListScreen';
 
-const Stack = createNativeStackNavigator();
+import './App.css'
+import { Rutas } from './Rutas'
 
-export default function App() {
+function App() {
+
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="ShoppingList" component={ShoppingListScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+    <div>
+      
+      <Rutas/>
+     
+    </div>
+      
+
+  )
 }
+
+export default App
