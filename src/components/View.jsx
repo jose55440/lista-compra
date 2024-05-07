@@ -8,11 +8,16 @@ export const View = () => {
   const { tasks, removeTask, toComplete } = useTaskList();
 
   return (
-    
+    <MagicMotion>
       <div>
+<<<<<<< HEAD
         <MagicMotion>
         <Create />
         
+=======
+        <Create />
+
+>>>>>>> parent of 931d207 (cambios)
         {tasks.map((task) => (
           <Task
             key={task.id}
@@ -23,8 +28,7 @@ export const View = () => {
             toComplete={toComplete}
           />
         ))}
-        </MagicMotion>
       </div>
-    
+    </MagicMotion>
   );
 };
