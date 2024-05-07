@@ -10,8 +10,9 @@ export const View = () => {
   return (
     
       <div>
-        <Create />
         <MagicMotion>
+        <Create />
+        
         {tasks.map((task) => (
           <Task
             key={task.id}
