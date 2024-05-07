@@ -90,4 +90,6 @@ const getUserTasks = async (userId) => {
     }
   } catch (error) {
     console.error('Error al obtener las tareas del usuario:', error);
-    return [];
+    return []; // <-- Aquí estaba el error, faltaba un cierre de llave
+  }
+};
