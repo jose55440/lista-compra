@@ -1,6 +1,4 @@
-
 import { Link } from 'react-router-dom'
-
 
 const links =[
     {
@@ -11,10 +9,6 @@ const links =[
         name:'Creacion',
         href:'/create'
     },
- 
-  
-    
-    
 ]
 
 export const NavBar = () => {

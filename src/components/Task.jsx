@@ -1,11 +1,11 @@
 import React from 'react'
 import { CiEdit } from "react-icons/ci";
 import { AiTwotoneDelete } from "react-icons/ai";
-import { Link } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import "../stylesheets/Task.css";
 import { useTaskList } from '../hooks/useTaskList';
 import { EditTask } from './EditTask';
+import { motion } from "framer-motion";
 
 export const Task = ({ id, name, completed, removeTask }) => {
   const { toComplete } = useTaskList();
@@ -35,10 +35,12 @@ export const Task = ({ id, name, completed, removeTask }) => {
   };
 
   return (
-    <div
-      className={
-        completed ? "contenedor-tarea completado" : "contenedor-tarea"
-      }
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className={completed ? "contenedor-tarea completado" : "contenedor-tarea"}
     >
       {name}
       <div className="botones">
@@ -54,6 +56,6 @@ export const Task = ({ id, name, completed, removeTask }) => {
         </div>
       </div>
       <Toaster />
-    </div>
+    </motion.div>
   )
 }
