@@ -4,7 +4,7 @@ import { View } from './components/View';
 import { Create } from './components/Create';
 import { EditTask } from './components/EditTask';
 import { NavBar } from './helper/NavBar';
-import { RegisterUser } from './RegisterUser';
+import { RegisterUser } from './components/RegisterUser';
 
 export const Rutas = () => {
   const isUserRegistered = true; // Aquí debes verificar si el usuario está registrado
