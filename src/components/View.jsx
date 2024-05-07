@@ -5,6 +5,7 @@ import { Create } from "./Create";
 import { motion } from "framer-motion";
 
 export const View = () => {
+  const {tasks,removeTask,toComplete} = useTaskList()
   return (
 
     <motion.div
