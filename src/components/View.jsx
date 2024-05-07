@@ -11,9 +11,14 @@ export const View = () => {
     <MagicMotion>
       <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <MagicMotion>
         <Create />
         
+=======
+        <Create />
+
+>>>>>>> parent of 931d207 (cambios)
 =======
         <Create />
 
