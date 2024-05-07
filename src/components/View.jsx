@@ -1,12 +1,6 @@
-import React from "react";
-import { useTaskList } from "../hooks/useTaskList";
-import { Task } from "./Task";
-import { Create } from "./Create";
-import { MagicMotion } from "react-magic-motion";
+import React from 'react'
 
 export const View = () => {
-  const { tasks, removeTask, toComplete } = useTaskList();
-
   return (
     <MagicMotion>
       <div>
