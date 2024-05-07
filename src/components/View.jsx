@@ -15,6 +15,7 @@ export const View = () => {
     >
       <div>
         <Create />
+
         {tasks.map((task) => (
           <Task
             key={task.id}
