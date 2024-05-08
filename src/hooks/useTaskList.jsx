@@ -10,7 +10,7 @@ export const useTaskList = create((set) => ({
     completed: false
   }],
   user:{},
-  setUser: (userTest) => set(() => ({user: userTest})),
+  setUser: (userTest) => set(() => ({user: userTest})), 
   addUser:(newUser) =>fetchNewUser(newUser),
   addTask: (newTask) => set((state) => ({ tasks: [...state.tasks, newTask] })),
   removeTask: (taskId) => set((state) => ({

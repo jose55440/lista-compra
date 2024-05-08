@@ -23,3 +23,12 @@ export const toComplete = (id, tasks) => {
   });
   return newTasks;
 }
+
+
+
+export const checkIfUserIsRegistered = (user) => {
+  // Aquí debes implementar la lógica para verificar si el usuario está registrado
+  // Por ejemplo, podrías verificar si el usuario tiene un ID válido u otro criterio
+  // Retorna true si el usuario está registrado, false en caso contrario
+  return user !== null && user !== undefined;
+};

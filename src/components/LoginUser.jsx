@@ -3,7 +3,7 @@ import { useTaskList } from "../hooks/useTaskList";
 import { v4 as uuidv4 } from "uuid";
 import { fetchUsers } from "../helpers/fetchUsers";
 export const LoginUser = () => {
-  const { user, setUser, addUser } = useTaskList();
+  const {  setUser, addUser } = useTaskList();
   const [input, setInput] = useState("");
 
   const handleInput = (e) => {
@@ -13,7 +13,9 @@ export const LoginUser = () => {
   const searchUser = async () => {
     try {
       const usersData = await fetchUsers();
+      
       const foundUser = usersData.find((user) => user.name === input);
+      console.log(foundUser)
       if (foundUser) {
         setUser(foundUser);
         return true
@@ -22,7 +24,8 @@ export const LoginUser = () => {
       } 
 
     } catch (error) {
-      console.log("Error al obtener datos de usuario");
+      console.log("Error al conseguir los usuarios");
+      return false
     }
   };
   const handleSubmit = async (e) => {
@@ -33,6 +36,7 @@ export const LoginUser = () => {
       name: input,
     };
     let foundUser=await searchUser();
+    console.log(foundUser)
     if (!foundUser) {
       addUser(newUser);
       setUser(newUser);

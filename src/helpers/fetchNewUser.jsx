@@ -1,13 +1,23 @@
 import React from "react";
 import { fetchUsers } from "./fetchUsers";
+import { useState } from "react";
 
 export const fetchNewUser = async (newUser) => {
+
   async function peticion() {
+   
     const url = import.meta.env.VITE_ENLACE_USERS;
     let { data } = await fetchUsers();
-    const newUserJson= JSON.parse(newUser)
-    const datosJSON = [...data, newUserJson];
-    
+    let datosJSON;
+    if (data != null) {
+      datosJSON = [...data,newUser];
+    } else {
+      
+      datosJSON = [newUser];
+    }
+    datosJSON = JSON.stringify(datosJSON);
+
+    console.log(datosJSON);
     const datatype = await fetch(url, {
       method: "PUT",
       body: datosJSON,
@@ -16,12 +26,12 @@ export const fetchNewUser = async (newUser) => {
       },
     });
     const response = await datatype.json();
-    return {response};
+    console.log(response);
   }
-  try{
-  return await peticion();
-  }catch(error){
-    console.log('Error al añadir usuario:', error);
+  try {
+    return peticion();
+  } catch (error) {
+    console.log("Error al añadir usuario:", error);
     throw error;
   }
 };
