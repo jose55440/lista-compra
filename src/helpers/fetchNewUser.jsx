@@ -17,7 +17,7 @@ export const fetchNewUser = async (newUser) => {
     }
     datosJSON = JSON.stringify(datosJSON);
 
-    console.log(datosJSON);
+    
     const datatype = await fetch(url, {
       method: "PUT",
       body: datosJSON,

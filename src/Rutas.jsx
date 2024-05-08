@@ -18,12 +18,12 @@ export const Rutas = () => {
     // Ejecutar acciones en función del estado del usuario registrado
     if (isUserRegistered) {
       // Usuario registrado
-      console.log(isUserRegistered);
-      console.log(user)
+      isUserRegistered
+      user
       // Ejecutar otras acciones si es necesario
     } else {
       // Usuario no registrado
-      console.log(isUserRegistered);
+      isUserRegistered
       // Ejecutar otras acciones si es necesario
     }
   }, [user]);
