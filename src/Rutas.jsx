@@ -1,25 +1,35 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {View} from './components/View';
-import {Create} from './components/Create';
-import {EditTask} from './components/EditTask';
-import { useTaskList } from './hooks/useTaskList';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { View } from './components/View';
+import { Create } from './components/Create';
+import { EditTask } from './components/EditTask';
 import { NavBar } from './helper/NavBar';
  // Esto asegura que el efecto se ejecute cada vez que la lista de tareas cambie
+import { LoginUser } from './components/LoginUser';
+
 export const Rutas = () => {
-  const { tasks } = useTaskList();
-  useEffect(() => {
-    tasks // Aquí puedes realizar cualquier acción que necesites con la lista de tareas
-  }, [tasks]);
+  const isUserRegistered = true; // Aquí debes verificar si el usuario está registrado
+  
+     
+  
   return (
     <Router>
-      <NavBar/>
+      <NavBar />  
       <Routes>
-        <Route path="/" element={<View/>} />
-        <Route path="/create" element={<Create />} />
-        <Route path="/edit/:id" element={<EditTask />} />
+        <Route path="/LoginUser" element={<LoginUser />} />
+        <Route
+          path="/"
+          element={isUserRegistered ? <View /> : <Navigate to="/LoginUser" />}
+        />
+        <Route
+          path="/create"
+          element={isUserRegistered ? <Create /> : <Navigate to="/LoginUser" />}
+        />
+        <Route
+          path="/edit/:id"
+          element={isUserRegistered ? <EditTask /> : <Navigate to="/LoginUser" />}
+        />
       </Routes>
     </Router>
   );
 };
-

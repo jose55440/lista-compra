@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTaskList } from '../hooks/useTaskList';
+import { motion } from "framer-motion";
 
 export const EditTask = ({ taskId }) => {
   const { tasks, editTask } = useTaskList();
@@ -12,15 +13,22 @@ export const EditTask = ({ taskId }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={taskName}
-          onChange={(e) => setTaskName(e.target.value)}
-        />
-        <button type="submit">Guardar</button>
-      </form>
-    </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={taskName}
+            onChange={(e) => setTaskName(e.target.value)}
+          />
+          <button type="submit">Guardar</button>
+        </form>
+      </div>
+    </motion.div>
   );
 };
