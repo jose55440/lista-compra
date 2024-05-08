@@ -4,6 +4,7 @@ import { View } from './components/View';
 import { Create } from './components/Create';
 import { EditTask } from './components/EditTask';
 import { NavBar } from './helper/NavBar';
+ // Esto asegura que el efecto se ejecute cada vez que la lista de tareas cambie
 import { LoginUser } from './components/LoginUser';
 import { useTaskList } from './hooks/useTaskList';
 import { checkIfUserIsRegistered } from './lib/TaskFunctions';
@@ -30,8 +31,7 @@ export const Rutas = () => {
   
   return (
     <Router>
-      <NavBar />
-      
+      <NavBar />  
       <Routes>
         <Route path="/loginUser" element={<LoginUser />} />
         <Route
