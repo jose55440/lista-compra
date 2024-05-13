@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 export const Task = ({ id, name, completed, removeTask }) => {
   const { toComplete } = useTaskList();
   const [showEditTask, setShowEditTask] = React.useState(false);
-
+  
   const procesarBorrado = () => {
     toast.custom((t) => (
       <div className="confirmation-message">
