@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useTaskList } from "../hooks/useTaskList";
+import { useUserSet } from "../hooks/useUserSet";
 import { v4 as uuidv4 } from "uuid";
 import { fetchUsers } from "../helpers/fetchUsers";
 
 export const LoginUser = () => {
-  const { setUser, addUser } = useTaskList();
+  const { user,setUser, addUser } = useUserSet();
   const [input, setInput] = useState("");
 
   const handleInput = (e) => {
@@ -12,13 +12,13 @@ export const LoginUser = () => {
   };
   const searchUser = async () => {
     try {
-      const usersData = await fetchUsers();
-      console.log(usersData);
+      const {data} = await fetchUsers();
+      console.log(data);
       
       let userFound = false;
 
-      usersData.forEach(user => {
-        console.log(user);
+      data.forEach(user => {
+        
         if (user.name === input) {
           setUser(user);
           userFound = true; // Usuario encontrado, establece userFound en true y detén la iteración
@@ -46,6 +46,7 @@ export const LoginUser = () => {
       addUser(newUser);
       setUser(newUser);
     }
+    console.log(user)
   };
 
   return (
