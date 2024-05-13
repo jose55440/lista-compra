@@ -51,17 +51,17 @@ export const LoginUser = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="text"
-        id="text"
-        value={input}
-        onChange={handleInput}
-        placeholder="Ingrese una nueva tarea"
-      />
-      {JSON.stringify(user)}
-      <button type="submit">Agregar</button>
-    </form>
+    <input
+      type="text"
+      name="text"
+      id="text"
+      value={input}
+      onChange={handleInput}
+      placeholder="Ingrese una nueva tarea"
+    />
+    {JSON.stringify(user)}
+    <button type="submit">Agregar</button>
+  </form>
   );
 
 
