@@ -59,6 +59,7 @@ export const LoginUser = () => {
         onChange={handleInput}
         placeholder="Ingrese una nueva tarea"
       />
+      {JSON.stringify(user)}
       <button type="submit">Agregar</button>
     </form>
   );
