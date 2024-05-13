@@ -6,11 +6,11 @@ import { EditTask } from './components/EditTask';
 import { NavBar } from './helper/NavBar';
  // Esto asegura que el efecto se ejecute cada vez que la lista de tareas cambie
 import { LoginUser } from './components/LoginUser';
-import { useTaskList } from './hooks/useTaskList';
+import { useUserSet } from './hooks/useUserSet';
 import { checkIfUserIsRegistered } from './lib/TaskFunctions';
 
 export const Rutas = () => {
-  const {user} = useTaskList();
+  const {user} = useUserSet();
   const [isUserRegistered, setIsUserRegistered] = useState(false);
   useEffect(() => {
     // Verificar si el usuario está registrado

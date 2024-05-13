@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { fetchNewUser } from "../helpers/fetchNewUser";
 
 export const useUserSet = create((set) => ({
-  user: null, 
-  setUser: (userTest) => set({ user: userTest }), // Actualizamos el estado directamente con el nuevo valor
+  user: {}, 
+  setUser: (state,newUser) => set(state.user=newUser ), // Actualizamos el estado con el valor pasado como parámetro
   addUser: (newUser) => fetchNewUser(newUser),
 }));
