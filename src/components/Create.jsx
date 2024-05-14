@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useTaskList } from '../hooks/useTaskList';
 import { v4 as uuidv4 } from 'uuid';
+import { useUserSet } from '../hooks/useUserSet';
 
 
 export const Create = () => {
   const { addTask } = useTaskList();
+  const {user} = useUserSet();
   const [input, setInput] = useState('');
 
   const handleInput = (e) => {
@@ -18,9 +20,10 @@ export const Create = () => {
     const newTask = {
       id: uuidv4(),
       name: input,
-      completed: false
+      completed: false,
+      idUser: user.id
     };
-
+    console.log(newTask)
     addTask(newTask); // Agrega la nueva tarea al estado
     setInput(''); // Limpia el campo de entrada después de agregar la tarea
     

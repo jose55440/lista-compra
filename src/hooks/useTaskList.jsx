@@ -8,8 +8,16 @@ export const useTaskList = create((set) => ({
   tasks: [{
     id: uuidv4(),
     name: 'Tarea 1',
-    completed: false
-  }],
+    completed: false,
+    idUser:'b4c05146-a5d8-4c0c-969b-bc53feffbb7c'
+  },
+  {
+    id: uuidv4(),
+    name: 'Tarea 2',
+    completed: true,
+    idUser:'b4c05146-a5d8-4c0c-969b-bc53feffbb7c'
+  },
+],
   
   addTask: (newTask) => set((state) => ({ tasks: [...state.tasks, newTask] })),
   removeTask: (taskId) => set((state) => ({
