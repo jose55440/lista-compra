@@ -1,23 +1,17 @@
 import React from "react";
-import { fetchUsers } from "./fetchUsers";
+import { fetchTasks } from "./fetchTasks";
+import { useTaskList } from "../hooks/useTaskList";
 
-
-export const fetchNewUser = async (newUser) => {
-
+export const fetchNewTask = (newTasks) => {
   async function peticion() {
-   
-    const url = import.meta.env.VITE_ENLACE_USERS;
-    let { data } = await fetchUsers();
+    const url = import.meta.env.VITE_ENLACE_COMPRAS;
+    
     let datosJSON;
-    if (data != null) {
-      datosJSON = [...data,newUser];
-    } else {
-      
-      datosJSON = [newUser];
-    }
+    
+    datosJSON = await newTasks;
+    console.log(newTasks)
     datosJSON = JSON.stringify(datosJSON);
 
-    
     const datatype = await fetch(url, {
       method: "PUT",
       body: datosJSON,
@@ -28,10 +22,11 @@ export const fetchNewUser = async (newUser) => {
     const response = await datatype.json();
     console.log(response);
   }
+
   try {
     return peticion();
   } catch (error) {
-    console.log("Error al añadir usuario:", error);
+    console.log("Error al añadir tarea:", error);
     throw error;
   }
 };

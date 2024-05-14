@@ -1,8 +1,4 @@
-export const viewTask = () => {
-  return (
-    <div>Task</div>
-  )
-}
+
 
 export const editTask = (id, tasks, updatedTask) => {
   const newTasks = tasks.map((task) => {

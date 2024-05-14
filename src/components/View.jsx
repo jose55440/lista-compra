@@ -4,10 +4,13 @@ import { Task } from "./Task";
 import { Create } from "./Create";
 import { motion } from "framer-motion";
 import { useUserSet } from "../hooks/useUserSet";
+import { fetchTasks } from "../helpers/fetchTasks";
 
 export const View = () => {
   const {tasks,removeTask,toComplete} = useTaskList()
   const {user} = useUserSet();
+  
+   
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTaskList } from '../hooks/useTaskList';
 import { v4 as uuidv4 } from 'uuid';
 import { useUserSet } from '../hooks/useUserSet';
 
 
 export const Create = () => {
-  const { addTask } = useTaskList();
+  const { tasks,addTask,addTaskToBase } = useTaskList();
   const {user} = useUserSet();
   const [input, setInput] = useState('');
 
   const handleInput = (e) => {
     setInput(e.target.value);
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!input.trim()) return; // Evita agregar una tarea vacía
@@ -24,7 +24,8 @@ export const Create = () => {
       idUser: user.id
     };
     console.log(newTask)
-    addTask(newTask); // Agrega la nueva tarea al estado
+    addTask(newTask)
+    
     setInput(''); // Limpia el campo de entrada después de agregar la tarea
     
   };

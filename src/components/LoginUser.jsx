@@ -13,7 +13,7 @@ export const LoginUser = () => {
   const searchUser = async () => {
     try {
       const {data} = await fetchUsers();
-      console.log(data);
+      
       
       let userFound = false;
 
@@ -41,12 +41,12 @@ export const LoginUser = () => {
       name: input,
     };
     let foundUser = await searchUser();
-    console.log(foundUser);
+    
     if (foundUser == false) {
       addUser(newUser);
       setUser(newUser);
     }
-    console.log(user)
+    
   };
 
   return (

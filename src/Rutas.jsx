@@ -8,13 +8,18 @@ import { NavBar } from './helper/NavBar';
 import { LoginUser } from './components/LoginUser';
 import { useUserSet } from './hooks/useUserSet';
 import { checkIfUserIsRegistered } from './lib/TaskFunctions';
+import { useTaskList } from './hooks/useTaskList';
+import { fetchUsers } from './helpers/fetchUsers';
+import {fetchTasks} from './helpers/fetchTasks'
 
 export const Rutas = () => {
   const {user} = useUserSet();
+  
   const [isUserRegistered, setIsUserRegistered] = useState(false);
   useEffect(() => {
     // Verificar si el usuario está registrado
     setIsUserRegistered ( checkIfUserIsRegistered(user));
+    
     // Ejecutar acciones en función del estado del usuario registrado
     if (isUserRegistered) {
       // Usuario registrado
