@@ -2,18 +2,14 @@ import React from "react";
 import { fetchTasks } from "./fetchTasks";
 import { useTaskList } from "../hooks/useTaskList";
 
-export const fetchNewTask = (newTask) => {
+export const fetchNewTask = (newTasks) => {
   async function peticion() {
     const url = import.meta.env.VITE_ENLACE_COMPRAS;
-    const {data} = await fetchTasks();
-    let datosJSON;
-    if (data!=null){
-      datosJSON = [...data,newTask];
-    }else{
-      datosJSON = [newTask]
-    }
     
-   
+    let datosJSON;
+    
+    datosJSON = await newTasks;
+    console.log(newTasks)
     datosJSON = JSON.stringify(datosJSON);
 
     const datatype = await fetch(url, {

@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTaskList } from '../hooks/useTaskList';
 import { v4 as uuidv4 } from 'uuid';
 import { useUserSet } from '../hooks/useUserSet';
-import { fetchNewTask } from '../helpers/fetchNewTask';
 
 
 export const Create = () => {
-  const {addTask} = useTaskList();
+  const { tasks,addTask,addTaskToBase } = useTaskList();
   const {user} = useUserSet();
   const [input, setInput] = useState('');
 
@@ -26,7 +25,7 @@ export const Create = () => {
     };
     console.log(newTask)
     addTask(newTask)
-    fetchNewTask(newTask)
+    
     setInput(''); // Limpia el campo de entrada después de agregar la tarea
     
   };
