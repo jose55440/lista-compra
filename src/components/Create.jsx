@@ -38,7 +38,7 @@ export const Create = () => {
         id="text"
         value={input}
         onChange={handleInput}
-        placeholder="Ingrese una nueva tarea"
+        placeholder="Escribe aquí tu tarea"
       />
       <button type="submit">Agregar</button>
     </form>
