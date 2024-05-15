@@ -25,7 +25,7 @@ export const Create = () => {
     };
     console.log(newTask)
     addTask(newTask)
-    
+    addTaskToBase(newTask)
     setInput(''); // Limpia el campo de entrada después de agregar la tarea
     
   };
