@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useTaskList } from "../hooks/useTaskList";
 import { Task } from "./Task";
 import { Create } from "./Create";
