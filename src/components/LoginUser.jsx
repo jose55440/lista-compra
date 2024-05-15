@@ -57,7 +57,7 @@ export const LoginUser = () => {
       id="text"
       value={input}
       onChange={handleInput}
-      placeholder="Ingrese una nueva tarea"
+      placeholder="Ingrese usuario"
     />
     {JSON.stringify(user)}
     <button type="submit">Agregar</button>
