@@ -6,28 +6,21 @@ import { motion } from "framer-motion";
 import { useUserSet } from "../hooks/useUserSet";
 import { fetchTasks } from "../helpers/fetchTasks";
 
-export const View =  () => {
-  const {removeTask,toComplete} = useTaskList()
-  const {user} = useUserSet();
-  // const [data, setData] = useState([]);
+export const View = () => {
+  const { removeTask, toComplete } = useTaskList();
+  const { user } = useUserSet();
   const [purchase, setPurchase] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const {data} = await fetchTasks();
-      console.log(data)
-      if (data){
+      const { data } = await fetchTasks();
+      if (data) {
         setPurchase(data);
-
       }
-      
-      
     };
 
     fetchData();
   }, []);
-
-
 
   return (
     <motion.div
@@ -37,9 +30,9 @@ export const View =  () => {
       transition={{ duration: 0.5 }}
     >
       <div>
-        <Create />
-  
-        {purchase.map ((task) => {
+        <Create setPurchase={setPurchase} />
+
+        {purchase.map((task) => {
           if (task.idUser === user.id) {
             return (
               <Task
@@ -57,5 +50,4 @@ export const View =  () => {
       </div>
     </motion.div>
   );
-  
 };
