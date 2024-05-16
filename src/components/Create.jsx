@@ -24,7 +24,7 @@ export const Create = ({ setPurchase }) => {
     };
 
     addTask(newTask);
-    addTaskToBase(newTask);
+    
     setInput(''); // Limpia el campo de entrada después de agregar la tarea
 
     // Actualizar el estado purchase con la nueva tarea
