@@ -7,7 +7,7 @@ import { useUserSet } from "../hooks/useUserSet";
 import { fetchTasks } from "../helpers/fetchTasks";
 
 export const View = () => {
-  const { removeTask, toComplete } = useTaskList();
+  const { removeTask, toComplete, editTask } = useTaskList();
   const { user } = useUserSet();
   const [purchase, setPurchase] = useState([]);
 
@@ -21,6 +21,27 @@ export const View = () => {
 
     fetchData();
   }, []);
+
+  const handleRemoveTask = (taskId) => {
+    removeTask(taskId);
+    setPurchase((prevPurchase) => prevPurchase.filter((task) => task.id !== taskId));
+  };
+
+  const handleToComplete = (taskId) => {
+    toComplete(taskId);
+    setPurchase((prevPurchase) =>
+      prevPurchase.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
+  const handleEditTask = (taskId, updatedTask) => {
+    editTask(taskId, updatedTask);
+    setPurchase((prevPurchase) =>
+      prevPurchase.map((task) => (task.id === taskId ? { ...task, ...updatedTask } : task))
+    );
+  };
 
   return (
     <motion.div
@@ -40,12 +61,13 @@ export const View = () => {
                 id={task.id}
                 name={task.name}
                 completed={task.completed}
-                removeTask={removeTask}
-                toComplete={toComplete}
+                removeTask={handleRemoveTask}
+                toComplete={handleToComplete}
+                editTask={handleEditTask}
               />
             );
           }
-          return null; // Return null if condition is not met
+          return null;
         })}
       </div>
     </motion.div>

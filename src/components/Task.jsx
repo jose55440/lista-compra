@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { CiEdit } from "react-icons/ci";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { Toaster, toast } from "sonner";
@@ -7,11 +7,21 @@ import { useTaskList } from '../hooks/useTaskList';
 import { EditTask } from './EditTask';
 import { motion } from "framer-motion";
 
-export const Task = ({ id, name, completed, removeTask }) => {
-  const { toComplete } = useTaskList();
-  const [showEditTask, setShowEditTask] = React.useState(false);
-  
-  const procesarBorrado = () => {
+export const Task = ({ id, name, completed }) => {
+  const { removeTask, editTask, toComplete } = useTaskList();
+  const [showEditTask, setShowEditTask] = useState(false);
+  const [taskName, setTaskName] = useState(name);
+
+  const handleEdit = () => {
+    setShowEditTask(true);
+  };
+
+  const handleSaveEdit = (updatedTask) => {
+    editTask(id, updatedTask);
+    setShowEditTask(false);
+  };
+
+  const handleDelete = () => {
     toast.custom((t) => (
       <div className="confirmation-message">
         <div className="confirmation-message-text">{`¿Estás seguro de borrar la tarea "${name}"?`}</div>
@@ -34,6 +44,10 @@ export const Task = ({ id, name, completed, removeTask }) => {
     ));
   };
 
+  const handleToggleComplete = () => {
+    toComplete(id);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -44,18 +58,18 @@ export const Task = ({ id, name, completed, removeTask }) => {
     >
       {name}
       <div className="botones">
-        <div className="tarea-icono-editar" onClick={() => setShowEditTask(!showEditTask)}>
+        <div className="tarea-icono-editar" onClick={handleEdit}>
           <CiEdit />
         </div>
-        {showEditTask && <EditTask taskId={id} />}
-        <div className="tarea-icono-editar" onClick={procesarBorrado}>
+        {showEditTask && <EditTask taskId={id} taskName={taskName} setTaskName={setTaskName} onSave={handleSaveEdit} />}
+        <div className="tarea-icono-editar" onClick={handleDelete}>
           <AiTwotoneDelete />
         </div>
-        <div className="tarea-icono-completado" onClick={() => toComplete(id)}>
+        <div className="tarea-icono-completado" onClick={handleToggleComplete}>
           {completed ? "✔️" : "❌"}
         </div>
       </div>
       <Toaster />
     </motion.div>
-  )
-}
+  );
+};
