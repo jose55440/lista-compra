@@ -5,7 +5,7 @@ import { useUserSet } from '../hooks/useUserSet';
 
 
 export const Create = () => {
-  const { tasks,addTask,addTaskToBase } = useTaskList();
+  const { addTask,addTaskToBase } = useTaskList();
   const {user} = useUserSet();
   const [input, setInput] = useState('');
 

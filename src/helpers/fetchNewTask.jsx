@@ -1,6 +1,6 @@
 import React from "react";
 import { fetchTasks } from "./fetchTasks";
-import { useTaskList } from "../hooks/useTaskList";
+
 
 export const fetchNewTask = (newTask) => {
   async function peticion() {

@@ -61,7 +61,7 @@ export const LoginUser = ({ onLogin }) => {
         onChange={handleInput}
         placeholder="Ingrese usuario"
       />
-      {JSON.stringify(user)}
+      {/* {JSON.stringify(user)} */}
       <button type="submit">Agregar</button>
     </form>
   );

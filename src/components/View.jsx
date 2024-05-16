@@ -9,16 +9,24 @@ import { fetchTasks } from "../helpers/fetchTasks";
 export const View =  () => {
   const {removeTask,toComplete} = useTaskList()
   const {user} = useUserSet();
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
+  const [purchase, setPurchase] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await fetchTasks();
-      setData(result.data);
+      const {data} = await fetchTasks();
+      console.log(data)
+      if (data){
+        setPurchase(data);
+
+      }
+      
+      
     };
 
     fetchData();
   }, []);
+
 
 
   return (
@@ -31,7 +39,7 @@ export const View =  () => {
       <div>
         <Create />
   
-        {data.map((task) => {
+        {purchase.map ((task) => {
           if (task.idUser === user.id) {
             return (
               <Task
