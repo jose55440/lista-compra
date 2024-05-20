@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTaskList } from '../hooks/useTaskList';
 import { v4 as uuidv4 } from 'uuid';
 import { useUserSet } from '../hooks/useUserSet';
+import { Button, TextField } from '@mui/material';
 
 export const Create = ({ setPurchase }) => {
   const { addTask, addTaskToBase } = useTaskList();
@@ -33,7 +34,8 @@ export const Create = ({ setPurchase }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <TextField 
+      variant='standard'
         type="text"
         name="text"
         id="text"
@@ -41,7 +43,7 @@ export const Create = ({ setPurchase }) => {
         onChange={handleInput}
         placeholder="Escribe aquí tu tarea"
       />
-      <button type="submit">Agregar</button>
+      <Button variant="outlined" type="submit" color="success">Agregar</Button>
     </form>
   );
 };

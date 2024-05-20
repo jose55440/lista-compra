@@ -3,6 +3,7 @@ import { useUserSet } from "../hooks/useUserSet";
 import { v4 as uuidv4 } from "uuid";
 import { fetchUsers } from "../helpers/fetchUsers";
 import { useNavigate } from 'react-router-dom';
+import { Button, TextField } from "@mui/material";
 
 export const LoginUser = ({ onLogin }) => {
   const { user, setUser, addUser } = useUserSet();
@@ -53,7 +54,9 @@ export const LoginUser = ({ onLogin }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <TextField 
+      
+      variant="standard"
         type="text"
         name="text"
         id="text"
@@ -62,7 +65,7 @@ export const LoginUser = ({ onLogin }) => {
         placeholder="Ingrese usuario"
       />
       {/* {JSON.stringify(user)} */}
-      <button type="submit">Agregar</button>
+      <Button type="submit" variant="outlined">Login</Button>
     </form>
   );
 };

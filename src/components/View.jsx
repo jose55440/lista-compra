@@ -5,8 +5,10 @@ import { Create } from "./Create";
 import { motion } from "framer-motion";
 import { useUserSet } from "../hooks/useUserSet";
 import { fetchTasks } from "../helpers/fetchTasks";
+import '../stylesheets/View.css'
+import { Button } from "@mui/material";
 
-export const View = () => {
+export const View = ({ isLoggedIn, onLogout }) => {
   const { removeTask, toComplete, editTask } = useTaskList();
   const { user } = useUserSet();
   const [purchase, setPurchase] = useState([]);
@@ -51,7 +53,9 @@ export const View = () => {
       transition={{ duration: 0.5 }}
     >
       <div>
+      {isLoggedIn && <Button variant="outlined" color="error" onClick={onLogout}>Cerrar sesión</Button>}
         <Create setPurchase={setPurchase} />
+       
 
         {purchase.map((task) => {
           if (task.idUser === user.id) {

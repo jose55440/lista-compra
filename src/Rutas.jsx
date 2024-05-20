@@ -31,12 +31,12 @@ export const Rutas = () => {
 
   return (
     <Router>
-      <NavBar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+      {/* <NavBar isLoggedIn={isLoggedIn} onLogout={handleLogout} /> */}
       <Routes>
         <Route path="/loginUser" element={<LoginUser onLogin={handleLogin} />} />
         <Route
           path="/"
-          element={isLoggedIn ? <View /> : <Navigate to="/loginUser" />}
+          element={isLoggedIn ? <View  isLoggedIn={isLoggedIn} onLogout={handleLogout}/> : <Navigate to="/loginUser" />}
         />
         <Route
           path="/create"
