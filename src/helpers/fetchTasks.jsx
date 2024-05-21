@@ -13,17 +13,26 @@ export const fetchTasks = async () => {
 };
 
 export const deleteTask = async (taskId) => {
-  const url = `${import.meta.env.VITE_ENLACE_COMPRAS}/${taskId}`;
+  const url = import.meta.env.VITE_ENLACE_COMPRAS;
+  const { data } = await fetchTasks();
+  const updatedData = data.filter((task) => task.id !== taskId);
+  const datosJSON = JSON.stringify(updatedData);
+
   try {
-    const response = await fetch(url, {
-      method: 'DELETE',
+    const datatype = await fetch(url, {
+      method: "PUT",
+      body: datosJSON,
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-    if (response.ok) {
-      console.log('Tarea eliminada con ID: ', taskId);
-    } else {
-      console.error('Error al eliminar la tarea: ', response.status);
-    }
+    const response = await datatype.json();
+    
+
+   
+
+    console.log('Tarea eliminada :', taskId);
   } catch (error) {
-    console.error('Error al eliminar la tarea: ', error);
+    console.error('Error al eliminar la tarea:', error);
   }
 };
