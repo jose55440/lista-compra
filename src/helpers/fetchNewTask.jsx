@@ -52,7 +52,7 @@ export const editTaskInDB = async (taskId, updatedTask) => {
       },
     });
     const response = await datatype.json();
-    console.log(response);
+    response
   } catch (error) {
     console.error("Error al editar la tarea: ", error);
   }
