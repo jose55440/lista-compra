@@ -10,9 +10,9 @@ export const useTaskList = create((set, get) => ({
   setTasks: (tasks) => set({ tasks: tasks.filter((task) => task.idUser === get().user?.id) }),
 
   addTask: async (newTask) => {
-    const taskWithId = { ...newTask, id: uuidv4(), idUser: get().user?.id };
-    await fetchNewTask(taskWithId);
-    set((state) => ({ tasks: [...state.tasks, taskWithId] }));
+    await fetchNewTask(newTask);
+    
+    set((state) => ({ tasks: [...state.tasks, newTask] }));
     await get().fetchTasksFromDB();
   },
 

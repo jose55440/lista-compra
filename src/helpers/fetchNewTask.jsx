@@ -3,6 +3,7 @@ import { fetchTasks } from "./fetchTasks";
 
 export const fetchNewTask = (newTask) => {
   async function peticion() {
+    
     const url = import.meta.env.VITE_ENLACE_COMPRAS;
     const { data } = await fetchTasks();
     let datosJSON;
@@ -13,6 +14,7 @@ export const fetchNewTask = (newTask) => {
     }
 
     datosJSON = JSON.stringify(datosJSON);
+    
 
     const datatype = await fetch(url, {
       method: "PUT",
